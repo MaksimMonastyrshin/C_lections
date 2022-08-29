@@ -8,8 +8,8 @@ int count = 0,
 double distance = 10000,
        FirstFriendSpeed = 1,
        SecondFriendSpeed = 2,
-       DogSpeed = 3;
-Time = 0;
+       DogSpeed = 3,
+       Time = 0;
 
 while (distance > 10)
 {

@@ -1,4 +1,6 @@
-﻿Console.Clear();
+﻿// Задача про собаку и друзей
+
+Console.Clear();
 
 int count = 0,
     friend = 2;

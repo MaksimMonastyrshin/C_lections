@@ -7,5 +7,5 @@
 Console.Write("Введите проверяемое на четность число = ");
 int a = Convert.ToInt32(Console.ReadLine());
 
-if (Math.Abs(a) % 2 > 0) Console.WriteLine($"{a} -> нет");
+if (Math.Abs(a) % 2 > 0) Console.WriteLine($"{a} -> нет"); //если остаток от деления на 2 больше 0, то число нечетное
 else Console.WriteLine($"{a} -> да");

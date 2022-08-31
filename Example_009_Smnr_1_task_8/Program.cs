@@ -16,5 +16,5 @@ else
         Console.Write(count);
         count += 2;
         if ((count < a) || (count == a)) Console.Write(", "); // если СЛЕДУЮЩЕЕ четное число меньше или равно А, то к текущему добавляем разделитель
-    };
+    }
 }

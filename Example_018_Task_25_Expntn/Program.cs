@@ -8,16 +8,13 @@ Console.WriteLine("Введите основание (число, которое
 double a = Convert.ToDouble(Console.ReadLine());
 Console.WriteLine("Введите степень: ");
 int b = Convert.ToInt32(Console.ReadLine());
-
 double result = 1;
 int count = 0;
-
 while (count < b)
 {
     result = result * a;
     count ++;
 }
-
 Console.WriteLine($"{a}, {b} -> {result} ({a}{UpString(b)})");
 Console.WriteLine();
 
@@ -38,7 +35,6 @@ string UpString(int num) // Метод UpString() для преобразова�
 while (num > 0);
 return ExpUpString;
 }
-
 string UpChar(int Dig1)  // метод преобразует цифры в диапазоне [0-9] в надстрочные ⁰¹²³⁴⁵⁶⁷⁸⁹ цифры Unicode
 {
     string CharUp = string.Empty;

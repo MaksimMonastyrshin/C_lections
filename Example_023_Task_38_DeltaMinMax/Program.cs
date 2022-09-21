@@ -5,27 +5,29 @@ Console.Clear();
 Console.Write("Введите число элементов в формируемом массиве: ");
 int arraySize = Convert.ToInt32(Console.ReadLine());
 double[] myArray = new double[arraySize];
-FillArray(myArray, -100, 101);
+FillArray(myArray, -100, 100);
 Console.Write("[");
 PrintArray(myArray, ", ");
 Console.Write("] -> ");
-double MinElement = 0;
-double MaxElement = 0;
-FindMinMax(myArray, out MinElement, out MaxElement);
-Console.WriteLine(MaxElement - MinElement);
+double minElement = 0;
+double maxElement = 0;
+FindMinMax(myArray, out minElement, out maxElement);
+Console.WriteLine(maxElement - minElement);
 
-void FindMinMax(double[] paramArray, out double MinEl, out double MaxEl)
+// Метод для поиска и вывода максимального и минимального значения элементов массива.
+void FindMinMax(double[] paramArray, out double minEl, out double maxEl)
 {
-    MaxEl = 0;
-    MinEl = 0;
+    maxEl = 0;
+    minEl = 0;
     foreach (double el in paramArray)
     {
-        if (el > MaxEl) MaxEl = el;
-        if (el < MinEl) MinEl = el;
+        if (el > maxEl) maxEl = el;
+        if (el < minEl) minEl = el;
     }
 }
 
-void FillArray(double[] paramArray, int minValue, int maxValue)    //Метод для заполнения переданного массива rnd значениями в диапазоне [min, max]
+// Метод для заполнения переданного массива rnd значениями в диапазоне [min, max].
+void FillArray(double[] paramArray, int minValue, int maxValue)
 {
     int arraySize = paramArray.Length;
     for (int i = 0; i < arraySize; i++)
@@ -34,7 +36,8 @@ void FillArray(double[] paramArray, int minValue, int maxValue)    //Метод 
     }
 }
 
-void PrintArray(double[] paramArray, string delimiter)    //Метод для вывода на экран элементов переданного массива через разделитель
+// Метод для вывода на экран элементов переданного массива через разделитель.
+void PrintArray(double[] paramArray, string delimiter)
 {
     int arraySize = paramArray.Length;
     for (int i = 0; i < arraySize; i++)

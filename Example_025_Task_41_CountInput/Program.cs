@@ -10,7 +10,7 @@ IFormatProvider formatter = new NumberFormatInfo();
 
 Console.Clear();
 Console.WriteLine("Введите несколько чисел через запятую или пробел: ");
-string? userString = Console.ReadLine();
+string userString = Console.ReadLine();
 
 // Прогон полученной строки через метод очистки от мусора.
 userString = ClearingString(userString);

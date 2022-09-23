@@ -9,7 +9,7 @@ IFormatProvider formatter = new NumberFormatInfo();
 
 Console.Clear();
 Console.WriteLine("Введите параметры уравнений b1, k1, b2, k2 через запятую: ");
-string? userString = Console.ReadLine();
+string userString = Console.ReadLine();
 
 // Прогон полученной строки через метод очистки от мусора.
 userString = ClearingString(userString);

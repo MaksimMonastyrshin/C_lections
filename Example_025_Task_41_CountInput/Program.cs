@@ -27,7 +27,7 @@ foreach (double outNumber in Crasher(userString))
 
 Console.WriteLine($"{userString} -> {count}");
 
-// Метод разбивки введенной строки на цифры
+// Метод разбивки введенной строки на цифры.
 double[] Crasher(string inputedString)
 {
     string[] words = inputedString.Split(new char[] { ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);
@@ -41,7 +41,7 @@ double[] Crasher(string inputedString)
     return outNum;
 }
 
-// Метод очистки строки от пробелов.
+// Метод очистки строки от ' ', '*' и '_' в начале и конце строки.
 string ClearingString(string inputString)
 {
     string outputStr = inputString.Trim(new char[] {' ', '*', '_'});

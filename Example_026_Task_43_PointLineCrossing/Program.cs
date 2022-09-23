@@ -3,69 +3,54 @@
 // значения b1, k1, b2 и k2 задаются пользователем.
 // b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
+// Задание интерфейса для корректной конвертации цифр с десятичными знаками.
+using System.Globalization;
+IFormatProvider formatter = new NumberFormatInfo();
+
 Console.Clear();
-double[] numbers = GetStringToNum();
-PrintArray(numbers);
-Console.WriteLine();
-double[] GetStringToNum()
+Console.WriteLine("Введите параметры уравнений b1, k1, b2, k2 через запятую: ");
+string? userString = Console.ReadLine();
+
+// Прогон полученной строки через метод очистки от мусора.
+userString = ClearingString(userString);
+
+// Получение массива значений координат.
+double[] outNumber = Crasher(userString);
+
+// Проверка введенных значений, полученных от метода разбивки строки на цифры.
+if (outNumber.Length == 4)
 {
-    double[] num = StringToNum(Console.ReadLine());
-    if (num.Length != 4)
-    {
-        Console.WriteLine("Введено недопустимое значение, введите 4 натуральных числа через запятую");
-    }
-    else
-    {
-        double x = 0;
-        double y = 0;
-        x = (num[2] - num[0]) / (num[1] - num[3]);
-        y = num[1] * x + num[0];
-        Console.WriteLine($"Точка пересечения ( {x} ; {y} )");
-    }
-    return num;
+    // Раскладка значений, вычисление и вывод координат.
+    double b1 = outNumber[0];
+    double k1 = outNumber[1];
+    double b2 = outNumber[2];
+    double k2 = outNumber[3];
+    double x = (b2 - b1) / (k1 - k2);
+    double y = k1 * x + b1;
+    Console.WriteLine($"b1 = {b1}, k1 = {k1}, b2 = {b2}, k2 = {k2} -> ({x}; {y})");
+}
+else
+{
+    Console.WriteLine("Должно быть введено 4 значения!");     
 }
 
-// Метод
-double[] StringToNum(string input)
+// Метод разбивки введенной строки на цифры.
+double[] Crasher(string inputedString)
 {
-    int count = 1;
-    for (int i = 0; i < input.Length; i++)
+    string[] words = inputedString.Split(new char[] { ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);
+    double[] outNum = new double[words.Length];
+
+    for (int i = 0; i < words.Length; i++)
     {
-        if (input[i] == ',')
-        {
-            count++;
-        }
+        outNum[i] = double.Parse(words[i], formatter);
     }
-    double[] num = new double[count];
-    int index = 0;
-    for (int i = 0; i < input.Length; i++)
-    {
-        string temp = "";
-        while (input[i] != ',')
-        {
-            if (i != input.Length - 1)
-            {
-                temp = temp + input[i].ToString(); // x=x+y и х+=у
-                i++;
-            }
-            else
-            {
-                temp += input[i].ToString();
-                break;
-            }
-        }
-        num[index] = Convert.ToDouble(temp);
-        index++;
-    }
-    return num;
+
+    return outNum;
 }
-void PrintArray(double[] array)
+
+// Метод очистки строки от ' ', '*' и '_' в начале и конце строки.
+string ClearingString(string inputString)
 {
-    Console.Write("[ ");
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (i != array.Length - 1) Console.Write($"{array[i]}, ");
-        else Console.Write($"{array[i]}");
-    }
-    Console.Write(" ]");
+    string outputStr = inputString.Trim(new char[] {' ', '*', '_'});
+    return outputStr;
 }

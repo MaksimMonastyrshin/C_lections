@@ -55,6 +55,7 @@ double CalcAvgArrayColumn(int[,] paramArray, int paramColumn)
     return (sum / rowsInAray);
 }
 
+// Метод проверки введенной размерности массива на корректность.
 bool ErrorFlag(int inputR, int inputC)
 {
     bool eFlag = false;

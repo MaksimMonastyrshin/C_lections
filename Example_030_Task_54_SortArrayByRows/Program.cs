@@ -92,7 +92,6 @@ void PrintIntArray(int[,] paramArray, string delimiter)
 }
 
 // Метод сортировки строк массива по убыванию. 
-// Параметры: (массив, индекс строки для сортировки)
 void SortArrayRowDown(int[,] paramArray, int inRow)
 {
     int size = paramArray.GetLength(1);

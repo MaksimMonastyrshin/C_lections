@@ -24,8 +24,10 @@ int maxValue = 100;
 double[,] array = new double[inputRows, inputColumns];
 FillArray(array, minValue, maxValue);
 
-// Вывод массива на экран.
+// Вывод массива на экран через заданный разделитель - горизонтальный табулятор.
 PrintArray(array, "\t");
+
+// Методы:
 
 // Метод проверки введенной размерности массива на корректность.
 bool ErrorFlag(int inputR, int inputC)
@@ -65,7 +67,7 @@ void PrintArray(double[,] paramArray, string delimiter)
     int columns = paramArray.GetLength(1);
 
     Console.WriteLine();
-    
+
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)

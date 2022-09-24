@@ -43,7 +43,6 @@ int[] outNumber = Crasher(userString);
 if (outNumber.Length == 2)
 {
     // Проверка координат и вывод результата.
-
     if ((outNumber[0] > 0) && (outNumber[0] <= inputRows) && (outNumber[1] > 0) && (outNumber[1] <= inputColumns))
     {
         Console.WriteLine($"В строке {outNumber[0]} столбца {outNumber[1]} значение: {array[(outNumber[0] - 1), (outNumber[1] - 1)]}");

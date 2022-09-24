@@ -1,4 +1,14 @@
-﻿// Блок ввода и проверки данных.
+﻿// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+// Например, даны 2 матрицы:
+// 2 4 | 3 4
+// 3 2 | 3 3
+// Результирующая матрица будет:
+// 18 20
+// 15 18
+
+Console.Clear();
+
+// Блок ввода и проверки данных.
 int inputRows = 0;
 int inputColumns = 0;
 do
@@ -9,31 +19,24 @@ do
     inputColumns = int.Parse(Console.ReadLine());
 } while (ErrorFlag(inputRows, inputColumns));
 
-// Блок заполнения и вывода начального массива на экран.
+// Блок заполнения и вывода матрицы А на экран.
 int minValue = 0;
 int maxValue = 9;
-int[,] array = new int[inputRows, inputColumns];
-FillArray(array, minValue, maxValue);
-Console.WriteLine("\nЗаданный массив: ");
-PrintIntArray(array, " ");
+int[,] arrayA = new int[inputRows, inputColumns];
+FillArray(arrayA, minValue, maxValue);
+Console.WriteLine("\n матрица A: ");
+PrintIntArray(arrayA, " ");
 
-int[,] array2 = GetNewArray1(array);
-PrintIntArray(array2, " ");
+// Блок заполнения и вывода матрицы В на экран.
+int[,] arrayB = new int[inputColumns, inputRows];
+FillArray(arrayB, minValue, maxValue);
+Console.WriteLine("матрица B: ");
+PrintIntArray(arrayB, " ");
 
-
-
-
-int[,] GetNewArray1(int[,] arr)
-{
-    int[,] newArray = new int[arr.GetLength(0),arr.GetLength(1)];
-    for (int j = 0; j < arr.GetLength(1); j++)
-    {
-        newArray[newArray.GetLength(0) - 1, j] = arr[0, j];
-        newArray[0, j] = arr[newArray.GetLength(0) - 1, j];
-    }
-    return newArray;
-}
-
+// Вычисление произведения матриц А*В и вывод на экран.
+int[,] multiplicatedArrays = MultArray(arrayA, arrayB);
+Console.WriteLine("произведение матриц A*B: ");
+PrintIntArray(multiplicatedArrays, " ");
 
 // Метод проверки введенной размерности массива на корректность.
 bool ErrorFlag(int inputR, int inputC)
@@ -66,6 +69,30 @@ void FillArray(int[,] paramArray, int minValue, int maxValue)
     }
 }
 
+// Метод перемножения двух матриц.
+int[,] MultArray(int[,] inArray1, int[,] inArray2)
+{
+    int rowsAB = inArray1.GetLength(0);
+    int columnsAB = inArray2.GetLength(1);
+    int multi = inArray1.GetLength(1);
+    int[,] arrayAB = new int[rowsAB, columnsAB];
+    int sum = 0;
+
+    for (int i = 0; i < rowsAB; i++)
+    {
+        for (int j = 0; j < columnsAB; j++)
+        {
+            sum = 0;
+            for (int m = 0; m < multi; m++)
+            {
+                sum = sum + inArray1[i, m] * inArray2[m, j];
+            }
+            arrayAB[i, j] = sum;
+        }
+    }
+    return arrayAB;
+}
+
 // Метод для вывода на экран элементов переданного 2D целочисленного массива через разделитель.
 void PrintIntArray(int[,] paramArray, string delimiter)
 {
@@ -87,4 +114,16 @@ void PrintIntArray(int[,] paramArray, string delimiter)
         Console.WriteLine();
     }
     Console.WriteLine();
+}
+
+int[,] GetNewArray1(int[,] arr)
+{
+    int[,] newArray = arr;
+    for (int j = 0; j < arr.GetLength(1); j++)
+    {
+        newArray[newArray.GetLength(0) - 1, j] = arr[0, j];
+        newArray[0, j] = arr[newArray.GetLength(0) - 1, j];
+    }
+
+    return newArray;
 }

@@ -115,15 +115,3 @@ void PrintIntArray(int[,] paramArray, string delimiter)
     }
     Console.WriteLine();
 }
-
-int[,] GetNewArray1(int[,] arr)
-{
-    int[,] newArray = arr;
-    for (int j = 0; j < arr.GetLength(1); j++)
-    {
-        newArray[newArray.GetLength(0) - 1, j] = arr[0, j];
-        newArray[0, j] = arr[newArray.GetLength(0) - 1, j];
-    }
-
-    return newArray;
-}

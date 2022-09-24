@@ -95,7 +95,6 @@ void PrintIntArray(int[,] paramArray, string delimiter)
 void SortArrayRowDown(int[,] paramArray, int inRow)
 {
     int size = paramArray.GetLength(1);
-    int maxIndex = 0;
     int temp = 0;
     for (int i = 0; i < (size - 1); i++)
     {

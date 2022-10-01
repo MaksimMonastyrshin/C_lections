@@ -25,9 +25,9 @@ int positionRow = 0;
 int positionCol = -1;
 int currentValue = 0;
 bool moveRight = true;
-bool moveDown = true;
-bool moveLeft = true;
-bool moveUp = true;
+bool moveDown = false;
+bool moveLeft = false;
+bool moveUp = false;
 
 // Пока есть возможность движения хотя бы в одном направлении - выполняем заполнение ряда.
 while (moveRight == true || moveDown == true || moveLeft == true || moveUp == true)

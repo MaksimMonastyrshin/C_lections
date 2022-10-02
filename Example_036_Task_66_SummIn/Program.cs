@@ -9,7 +9,7 @@ int m = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите конечное число N = ");
 int n = Convert.ToInt32(Console.ReadLine());
 
-if (m>n)
+if (m > n)
 {
     Console.WriteLine("Введены ошибочные значения: M > N.");
 }
